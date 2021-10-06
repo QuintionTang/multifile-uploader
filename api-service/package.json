@@ -1,0 +1,26 @@
+{
+    "name": "api-service",
+    "description": "node api service",
+    "version": "0.0.2",
+    "private": true,
+    "main": "./app.js",
+    "dependencies": {
+        "busboy": "^0.3.1",
+        "cors": "^2.8.5",
+        "express": "^4.17.1"
+    },
+    "scripts": {
+        "start": "node ./app.js",
+        "dev": "nodemon ./app.js"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.3",
+        "nodemon": "^2.0.12"
+    },
+    "engines": {
+        "node": "10.* || >= 12"
+    },
+    "keywords": [
+        "API"
+    ]
+}

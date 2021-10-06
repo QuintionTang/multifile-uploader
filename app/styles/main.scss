@@ -1,0 +1,327 @@
+@import "./partials/variables";
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+body {
+    margin: 0;
+    font-family: $font-primary;
+    font-size: $font-size-base;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+/* Custom page header */
+.header {
+    padding: 1rem 0rem;
+    border-bottom: 0.05rem solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 3rem;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 1.5rem;
+    color: #777;
+    border-top: 0.05rem solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 48em) {
+    .container {
+        max-width: 46rem;
+    }
+}
+.container-narrow > hr {
+    margin: 2rem 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 0.05rem solid #e5e5e5;
+}
+.jumbotron .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 3rem 0;
+}
+.marketing p + h4 {
+    margin-top: 1.5rem;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 48em) {
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 2rem;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+
+/* 上传相关样式 */
+button {
+    outline: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.upload-btn {
+    background: #1454ec;
+    color: #fff;
+    border-radius: 5px;
+    padding: 15px 20px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+.upload-result {
+    min-height: 360px;
+}
+.upload-progress-tracker {
+    background: #ffffff linear-gradient(45deg, #f4edff, #efffef) left
+        center/100% 100% no-repeat;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 35px #cdcdcd;
+    padding: 25px;
+    color: #565252;
+    position: relative;
+    transition: background 0.3s ease;
+    .tracker-container {
+        position: relative;
+        width: 100%;
+    }
+    h3 {
+        margin: 0;
+        font-size: 1.6em;
+        font-weight: normal;
+        color: #222;
+        padding-bottom: 10px;
+        i.number {
+            font-style: normal;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ff0000;
+            font-weight: bold;
+        }
+    }
+    .upload-progress {
+        margin: 10px 0 0;
+        font-size: 0.8em;
+        color: #617e8c;
+        span {
+            display: inline-block;
+            padding-right: 24px;
+            font-size: 0.85rem;
+            margin-right: 1rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            &.success-count {
+                background: url("../images/completed-indicator.svg") right
+                    center no-repeat;
+                background-size: auto 80%;
+            }
+            &.failed-count {
+                background: url("../images/failed-indicator.svg") right center
+                    no-repeat;
+                background-size: auto 80%;
+            }
+            &.paused-count {
+                background: url("../images/paused-indicator.svg") right center
+                    no-repeat;
+                background-size: auto 80%;
+            }
+        }
+    }
+    .maximize-btn {
+        position: absolute;
+        right: 25px;
+        top: 35px;
+        width: 20px;
+        height: 20px;
+        overflow: hidden;
+        text-indent: 9999999px;
+        background: url("../images/expand.svg") center center no-repeat;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+        &.expanded {
+            background: url("../images/collapse.svg") center center no-repeat;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .uploads-progress-bar {
+        position: absolute;
+        left: 0;
+        top: 105px;
+        height: 2px;
+        background: #607d8b;
+        opacity: 1;
+        transition: width 0.3s ease, opacity 0.3s ease;
+    }
+    .file-progress-wrapper {
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: height 0.3s ease, opacity 0.3s ease;
+        border-top: 1px solid #ddd;
+        margin-top: 15px;
+    }
+    .file-progress {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .file-actions {
+            min-width: 45px;
+            display: flex;
+            justify-content: center;
+            button {
+                height: 50px;
+                text-align: center;
+                padding: 36px 0 0;
+                font-size: 0.7em;
+                color: #607d8b;
+                width: 40px;
+                min-width: 40px;
+                margin-left: 5px;
+                &.clear-btn {
+                    background: url("../images/clear.svg") center 42%/20px 20px
+                        no-repeat;
+                }
+                &.retry-btn {
+                    background: url("../images/retry.svg") center 42%/20px 20px
+                        no-repeat;
+                }
+                &.cancel-btn {
+                    background: url("../images/paused.svg") center 42%/20px 20px
+                        no-repeat;
+                }
+                &.resume-btn {
+                    background: url("../images/resume.svg") center 42%/20px 20px
+                        no-repeat;
+                }
+            }
+        }
+        .file-details {
+            flex: 1;
+            margin: 5px 5px 5px 0;
+            p {
+                padding-right: 30px;
+                position: relative;
+                align-items: center;
+                font-size: 0.8em;
+                height: 25px;
+                color: #565656;
+                margin: 10px 0;
+                .file-name {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    margin-top: 4px;
+                    display: inline-block;
+                    flex: 1;
+                    /* 40px off because file status takes max 35px wide plus 5 of gap */
+                    max-width: calc(100% - 40px);
+                }
+                .file-ext {
+                    margin-top: 4px;
+                }
+                .status {
+                    overflow: hidden;
+                    text-indent: -9999999px;
+                    height: 20px;
+                    width: 20px;
+                    margin-right: 10px;
+                    float: left;
+                    &.uploading {
+                        text-indent: unset;
+                        width: 35px;
+                        position: absolute;
+                        right: 0;
+                        top: 5px;
+                        text-align: right;
+                        margin-right: 0;
+                    }
+                    &.failed {
+                        background: url("../images/failed.svg") center
+                            center/100% 100% no-repeat;
+                    }
+                    &.completed {
+                        background: url("../images/completed.svg") center
+                            center/100% 100% no-repeat;
+                    }
+                    &.paused {
+                        background: url("../images/paused-indicator.svg") center
+                            center/100% 100% no-repeat;
+                        right: auto;
+                        left: 0;
+                    }
+                }
+            }
+
+            &::after {
+                content: "";
+                width: 100%;
+                height: 2px;
+                background: #ddd;
+                display: block;
+                position: absolute;
+                bottom: 5px;
+                left: 0;
+                z-index: 1;
+            }
+            .progress-bar {
+                height: 2px;
+                background: #607d8b;
+                position: absolute;
+                bottom: 5px;
+                left: 0;
+                z-index: 2;
+            }
+        }
+    }
+    &.expanded {
+        background: #fff;
+        .uploads-progress-bar {
+            opacity: 0;
+        }
+        .file-progress-wrapper {
+            height: auto;
+            opacity: 1;
+        }
+    }
+}
