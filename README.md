@@ -19,3 +19,7 @@
 
 -   Run `yarn start`
 -   Or build production app `yarn build`
+
+### DEMO
+
+![](./readme/images/new-upload.gif)
