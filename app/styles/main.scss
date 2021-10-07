@@ -259,6 +259,7 @@ button {
                 }
                 .file-ext {
                     margin-top: 4px;
+                    color: #9ba7ca;
                 }
                 .status {
                     overflow: hidden;
@@ -267,6 +268,7 @@ button {
                     width: 20px;
                     margin-right: 10px;
                     float: left;
+
                     &.uploading {
                         text-indent: unset;
                         width: 35px;
@@ -275,6 +277,10 @@ button {
                         top: 5px;
                         text-align: right;
                         margin-right: 0;
+                    }
+                    &.pending {
+                        background: url("../images/pending.svg") center
+                            center/100% 100% no-repeat;
                     }
                     &.failed {
                         background: url("../images/failed.svg") center

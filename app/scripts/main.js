@@ -259,7 +259,7 @@ const uploadAndTrackFiles = (() => {
                     : 0;
 
             title.innerHTML =
-                percentage === 100
+                percentage === 100 && totalUploadingFiles === 0
                     ? `已上传文件 <i class="number"> ${totalUploadedFiles} </i>`
                     : `文件上传中 <i class="number"> ${totalUploadingFiles}/${files.size} </i>`;
             uploadedPerc.textContent = `${percentage}%`;
@@ -335,7 +335,7 @@ const uploadAndTrackFiles = (() => {
         fileElement.innerHTML = `
 			<div class="file-details" style="position: relative">
 				<p>
-					<span class="status">pending</span>
+					<span class="status pending">pending</span>
 					<span class="file-name">${file.name.substring(0, extIndex)}</span>
 					<span class="file-ext">${file.name.substring(extIndex)}</span>
 				</p>
@@ -432,10 +432,32 @@ const uploadAndTrackFiles = (() => {
         });
     };
 })();
-
+const preloaded = () => {
+    const preloadedPictures = [
+        "pending",
+        "failed",
+        "completed",
+        "paused-indicator",
+        "clear",
+        "completed-indicator",
+        "retry",
+        "paused",
+        "resume",
+        "expand",
+    ];
+    const loadPicture = (pictureName) => {
+        const newImg = new Image();
+        newImg.src = `../images/${pictureName}.svg`;
+        newImg.onload = function () {};
+    };
+    for (const pictureName of preloadedPictures) {
+        loadPicture(pictureName);
+    }
+};
 const elemFileInput = document.getElementById("file-upload-input");
 
 elemFileInput.addEventListener("change", (e) => {
     uploadAndTrackFiles(e.currentTarget.files);
     e.currentTarget.value = "";
 });
+preloaded();
