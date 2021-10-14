@@ -331,3 +331,18 @@ button {
         }
     }
 }
+.header-actions {
+    position: fixed;
+    top: 15px;
+    width: 100%;
+}
+.header-actions a.fullscreen {
+    float: right;
+    margin-right: 15px;
+    padding: 5px;
+}
+.header-actions a.exit {
+    float: left;
+    margin-left: 15px;
+    padding: 5px;
+}

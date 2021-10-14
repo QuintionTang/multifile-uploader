@@ -454,6 +454,38 @@ const preloaded = () => {
         loadPicture(pictureName);
     }
 };
+// 全屏代码开始
+const toggleFullscreen = () => {
+    if (document.fullscreenEnabled) {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            document.documentElement.requestFullscreen();
+        }
+    } else {
+        alert("Fullscreen is not supported!");
+    }
+};
+const elemBtnFullscreen = document.querySelector(".fullscreen-button");
+elemBtnFullscreen.addEventListener("click", () => {
+    // document.documentElement.requestFullscreen();
+    toggleFullscreen();
+});
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        toggleFullscreen();
+    }
+});
+const elemBtnFullscreen2 = document.querySelector(".fullscreen-upload-button");
+elemBtnFullscreen2.addEventListener("click", () => {
+    document.querySelector(".upload-btn").requestFullscreen();
+});
+
+const elemBtnExitscreen = document.querySelector(".exit-button");
+elemBtnExitscreen.addEventListener("click", () => {
+    document.exitFullscreen();
+});
+
 const elemFileInput = document.getElementById("file-upload-input");
 
 elemFileInput.addEventListener("change", (e) => {
